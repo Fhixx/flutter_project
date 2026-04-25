@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/order_model.dart';
 
 class ApiService {
-  static const baseUrl = "http://10.0.2.2:8000";
+  static const baseUrl = "http://flutterproject-production.up.railway.app";
 
   // GET ORDER
   static Future<List<OrderModel>> getCourierOrders(int courierId) async {

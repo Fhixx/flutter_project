@@ -112,7 +112,7 @@ Widget build(BuildContext context) {
             ),
           ),
 
-          /// 🔥 CONTENT
+          /// CONTENT
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16),

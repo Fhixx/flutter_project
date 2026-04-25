@@ -74,7 +74,7 @@ def get_finance_report(filter: str = "all"):
     cursor = db.cursor(dictionary=True)
 
     try:
-        # 🔥 Sync dulu
+        # Sync 
         sync_finance(cursor)
         db.commit()
 

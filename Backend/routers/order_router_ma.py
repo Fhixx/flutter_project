@@ -6,7 +6,7 @@ router = APIRouter(prefix="/orders", tags=["Orders"])
 @router.get("/diproses")
 def get_orders():
     db = get_db()
-    cursor = db.cursor(dictionary=True)  # biar hasil JSON
+    cursor = db.cursor(dictionary=True)  
 
     query = """
     SELECT 

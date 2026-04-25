@@ -36,7 +36,7 @@ class _ManagerDashboardPageState extends State<ManagerDashboardPage> {
   Future<void> fetchDashboard() async {
     try {
       final response = await http.get(
-        Uri.parse("http://10.0.2.2:8000/dashboard/"),
+        Uri.parse("http://flutterproject-production.up.railway.app/dashboard/"),
       );
 
       print("STATUS: ${response.statusCode}");

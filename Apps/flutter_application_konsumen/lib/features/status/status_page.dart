@@ -28,7 +28,7 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
   Future<void> fetchOrders() async {
     try {
       final response = await http.get(
-        Uri.parse("http://10.0.2.2:8000/orders/user/$userId"),
+        Uri.parse("http://flutterproject-production.up.railway.app/orders/user/$userId"),
       );
 
       if (response.statusCode == 200) {

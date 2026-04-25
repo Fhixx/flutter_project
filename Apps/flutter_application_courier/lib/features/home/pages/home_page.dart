@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
 
           const SizedBox(height: 24),
 
-          /// 🔥 STATISTIK
+          /// STATISTIK
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: isLoading

@@ -34,7 +34,7 @@ def assign_delivery(data: DeliveryRequest):
         return {"message": "Berhasil assign kurir"}
 
     except Exception as e:
-        db.rollback()  # 🔥 penting kalau gagal
+        db.rollback()  
         return {"error": str(e)}
 
     finally:

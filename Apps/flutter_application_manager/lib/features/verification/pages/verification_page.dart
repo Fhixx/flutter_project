@@ -33,7 +33,7 @@ class _VerificationPageState extends State<VerificationPage> {
 
     try {
       final response = await http.get(
-        Uri.parse("http://10.0.2.2:8000/verification/$status"),
+        Uri.parse("http://flutterproject-production.up.railway.app/verification/$status"),
       );
 
       if (response.statusCode == 200) {
@@ -53,7 +53,7 @@ class _VerificationPageState extends State<VerificationPage> {
   /// APPROVE
   Future<void> approveOrder(int id) async {
     final response = await http.put(
-      Uri.parse("http://10.0.2.2:8000/verification/approve/$id"),
+      Uri.parse("http://flutterproject-production.up.railway.app/verification/approve/$id"),
     );
 
     if (response.statusCode == 200) {
@@ -68,7 +68,7 @@ class _VerificationPageState extends State<VerificationPage> {
   /// REJECT
   Future<void> rejectOrder(int id) async {
     final response = await http.put(
-      Uri.parse("http://10.0.2.2:8000/verification/reject/$id"),
+      Uri.parse("http://flutterproject-production.up.railway.app/verification/reject/$id"),
     );
 
     if (response.statusCode == 200) {
@@ -199,7 +199,7 @@ class _VerificationPageState extends State<VerificationPage> {
                       color: AppColors.primary,
                       borderRadius: BorderRadius.circular(
                         14,
-                      ), // ✅ indicator ikut rounded
+                      ), // indicator ikut rounded
                     ),
                     labelColor: Colors.white, // aktif
                     unselectedLabelColor: Colors.black54, // non aktif

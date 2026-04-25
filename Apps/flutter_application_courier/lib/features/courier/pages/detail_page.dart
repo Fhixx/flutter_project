@@ -203,7 +203,7 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
 
       return Column(
         children: [
-          /// 💰 TOTAL COD
+          /// TOTAL COD
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(12),

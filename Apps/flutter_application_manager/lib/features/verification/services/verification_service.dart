@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class VerificationService {
-  static const baseUrl = "http://10.0.2.2:8000";
+  static const baseUrl = "http://flutterproject-production.up.railway.app";
 
   /// ambil pesanan menunggu verifikasi
   static Future<List> getOrders() async {

@@ -43,7 +43,7 @@ class _FinancePageState extends State<FinancePage>
     setState(() => isLoading = true);
 
     final res = await http.get(
-      Uri.parse("http://10.0.2.2:8000/finance-report/?filter=$filter"),
+      Uri.parse("http://flutterproject-production.up.railway.app/finance-report/?filter=$filter"),
     );
 
     final data = jsonDecode(res.body);
@@ -116,7 +116,7 @@ class _FinancePageState extends State<FinancePage>
 
                 const SizedBox(height: 16),
 
-                /// 📊 GRAFIK BATANG
+                /// GRAFIK BATANG
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Container(
@@ -157,7 +157,7 @@ class _FinancePageState extends State<FinancePage>
                         maxY:
                             (pemasukan > pengeluaran ? pemasukan : pengeluaran)
                                 .toDouble() *
-                            1.2, // 🔥 biar ada ruang atas
+                            1.2, 
 
                         barGroups: [
                           BarChartGroupData(
@@ -190,7 +190,7 @@ class _FinancePageState extends State<FinancePage>
 
                 const SizedBox(height: 16),
 
-                /// 💰 SALDO
+                /// SALDO
                 Container(
                   width: double.infinity,
                   margin: const EdgeInsets.symmetric(horizontal: 16),

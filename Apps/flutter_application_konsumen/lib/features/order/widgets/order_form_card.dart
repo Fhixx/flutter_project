@@ -106,7 +106,7 @@ class _OrderFormCardState extends State<OrderFormCard> {
     }
 
     /// =========================
-    /// 🟢 COD → LANGSUNG SIMPAN
+    /// COD → LANGSUNG SIMPAN
     /// =========================
     try {
       final res = await OrderService.createOrder(
