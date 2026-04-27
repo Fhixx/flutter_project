@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class OrderService {
-  static const baseUrl = "http://flutterproject-production.up.railway.app/orders/";
+  static const baseUrl = "https://flutterproject-production.up.railway.app/orders/";
 
   static Future<void> confirmPayment(int orderId) async {
     final res = await http

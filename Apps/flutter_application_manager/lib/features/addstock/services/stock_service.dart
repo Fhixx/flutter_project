@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class StockService {
-  static const String baseUrl = "http://flutterproject-production.up.railway.app";
+  static const String baseUrl = "https://flutterproject-production.up.railway.app";
 
   static Future<bool> addStock({
     required int productId,

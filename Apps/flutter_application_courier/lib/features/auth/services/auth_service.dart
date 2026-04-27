@@ -7,7 +7,7 @@ class AuthService {
     required String telepon,
   }) async {
     final response = await http.post(
-      Uri.parse("http://flutterproject-production.up.railway.app/api/login/kurir"),
+      Uri.parse("https://flutterproject-production.up.railway.app/api/login/kurir"),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode({
         "nama": nama,

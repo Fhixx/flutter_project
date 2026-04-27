@@ -5,7 +5,7 @@ import '../models/order_model.dart';
 import '../models/courier_model.dart';
 
 class ApiService {
-  static const String baseUrl = "http://flutterproject-production.up.railway.app";
+  static const String baseUrl = "https://flutterproject-production.up.railway.app";
 
   // GET ORDERS DIPROSES
   static Future<List<OrderModel>> getOrders() async {

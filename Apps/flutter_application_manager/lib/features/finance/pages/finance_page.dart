@@ -43,7 +43,7 @@ class _FinancePageState extends State<FinancePage>
     setState(() => isLoading = true);
 
     final res = await http.get(
-      Uri.parse("http://flutterproject-production.up.railway.app/finance-report/?filter=$filter"),
+      Uri.parse("https://flutterproject-production.up.railway.app/finance-report/?filter=$filter"),
     );
 
     final data = jsonDecode(res.body);

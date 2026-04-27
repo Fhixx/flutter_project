@@ -33,7 +33,7 @@ class _VerificationPageState extends State<VerificationPage> {
 
     try {
       final response = await http.get(
-        Uri.parse("http://flutterproject-production.up.railway.app/verification/$status"),
+        Uri.parse("https://flutterproject-production.up.railway.app/verification/$status"),
       );
 
       if (response.statusCode == 200) {
@@ -53,7 +53,7 @@ class _VerificationPageState extends State<VerificationPage> {
   /// APPROVE
   Future<void> approveOrder(int id) async {
     final response = await http.put(
-      Uri.parse("http://flutterproject-production.up.railway.app/verification/approve/$id"),
+      Uri.parse("https://flutterproject-production.up.railway.app/verification/approve/$id"),
     );
 
     if (response.statusCode == 200) {
@@ -68,7 +68,7 @@ class _VerificationPageState extends State<VerificationPage> {
   /// REJECT
   Future<void> rejectOrder(int id) async {
     final response = await http.put(
-      Uri.parse("http://flutterproject-production.up.railway.app/verification/reject/$id"),
+      Uri.parse("https://flutterproject-production.up.railway.app/verification/reject/$id"),
     );
 
     if (response.statusCode == 200) {

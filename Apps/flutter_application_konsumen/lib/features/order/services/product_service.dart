@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/product_model.dart';
 
 class ProductService {
-  static const baseUrl = "http://flutterproject-production.up.railway.app/products";
+  static const baseUrl = "https://flutterproject-production.up.railway.app/products";
 
   static Future<List<Product>> fetchProducts() async {
     final res = await http.get(Uri.parse(baseUrl));
