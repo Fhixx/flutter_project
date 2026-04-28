@@ -42,15 +42,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
       setState(() => isLoading = false);
 
-      if (res["status"] == "success") {
-        _showMsg("Registrasi berhasil");
+      if (res["success"] == true) {
+        _showMsg(res["message"] ?? "Registrasi berhasil");
 
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (_) => const LoginPage()),
         );
       } else {
-        _showMsg("Username sudah digunakan");
+        _showMsg(res["message"] ?? "Terjadi kesalahan");
       }
     } catch (e) {
       setState(() => isLoading = false);
@@ -59,8 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _showMsg(String msg) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(msg)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
   }
 
   @override
@@ -83,10 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: AuthLogo(),
-                    ),
+                    const Align(alignment: Alignment.center, child: AuthLogo()),
                     const SizedBox(height: 20),
 
                     const Text(
@@ -161,14 +157,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             );
                           },
-                          child: const Text(
-                            "Masuk",
-                            style: AppTextStyles.link,
-                          ),
+                          child: const Text("Masuk", style: AppTextStyles.link),
                         ),
                       ],
                     ),
-
                   ],
                 ),
               ),

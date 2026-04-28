@@ -10,7 +10,6 @@ import '../services/auth_service.dart';
 import '../../home/pages/home_page.dart';
 import '../../../core/session/user_session.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -28,41 +27,34 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => isLoading = true);
 
     final result = await AuthService.login(
-      username : usernameController.text,
-      password : passwordController.text,
+      username: usernameController.text,
+      password: passwordController.text,
     );
 
     setState(() => isLoading = false);
 
     if (!mounted) return;
 
-    if (result["status"] == "success") {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Login berhasil")),
-    );
-    UserSession.id = result["id"];
-    UserSession.username = result["username"];
-    
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (_) => HomePage(
-          username: result["username"],
-          userId: result["id"],
+    if (result["success"] == true) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Login berhasil")));
+
+      UserSession.id = result["data"]["id"];
+      UserSession.username = result["data"]["username"];
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (_) => HomePage(
+            username: result["data"]["username"],
+            userId: result["data"]["id"],
+          ),
         ),
-      ),
-    );
-    } else if (result["status"] == "not_found") {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("User tidak ditemukan")),
-      );
-    } else if (result["status"] == "wrong_password") {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Password salah")),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Terjadi kesalahan")),
+        SnackBar(content: Text(result["message"] ?? "Terjadi kesalahan")),
       );
     }
   }
@@ -87,10 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: AuthLogo(),
-                    ),
+                    const Align(alignment: Alignment.center, child: AuthLogo()),
                     const SizedBox(height: 20),
 
                     const Text(
@@ -129,12 +118,14 @@ class _LoginPageState extends State<LoginPage> {
                       child: TextButton(
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Hubungi admin untuk reset password"),
-                            duration: Duration(seconds: 2),
-                            backgroundColor: Colors.redAccent,
-                            behavior: SnackBarBehavior.floating,
-                          ),
+                            const SnackBar(
+                              content: Text(
+                                "Hubungi admin untuk reset password",
+                              ),
+                              duration: Duration(seconds: 2),
+                              backgroundColor: Colors.redAccent,
+                              behavior: SnackBarBehavior.floating,
+                            ),
                           );
                         },
                         child: const Text(
